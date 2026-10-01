@@ -1,0 +1,101 @@
+@import "@block_p/ui/globals.css";
+
+@theme inline {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-crimson: "Crimson Text", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  /* Ethiopian Colors */
+  --color-ethiopian-green: #06752F;
+  --color-ethiopian-gold: #F3D02D;
+  --color-ethiopian-red: #EE334E;
+  --color-ethiopian-brown: #8B7355;
+  --color-ethiopian-tan: #D4A76A;
+  --color-ember: oklch(0.65 0.22 38);
+  --color-ember-foreground: oklch(0.98 0 0);
+  --color-surface: oklch(0.97 0 0);
+}
+
+.dark {
+  --color-surface: oklch(0.20 0 0);
+}
+
+@layer utilities {
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground;
+  }
+
+  .ethiopian-old-title {
+    @apply font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wider text-[#06752F];
+    text-shadow: 2px 2px 4px rgba(243, 208, 45, 0.3);
+  }
+
+  .ethiopian-vintage-text {
+    @apply font-crimson text-lg sm:text-xl tracking-wide text-[#8B7355];
+  }
+
+  .ethiopian-cross-pattern {
+    background-image:
+      linear-gradient(45deg, transparent 48%, #F3D02D 48%, #F3D02D 52%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, #F3D02D 48%, #F3D02D 52%, transparent 52%),
+      linear-gradient(to right, transparent 48%, #F3D02D 48%, #F3D02D 52%, transparent 52%),
+      linear-gradient(to bottom, transparent 48%, #F3D02D 48%, #F3D02D 52%, transparent 52%);
+    background-size: 40px 40px;
+    background-position: 0 0;
+  }
+
+  .ethiopian-geo-pattern {
+    background-image:
+      linear-gradient(135deg, #06752F 25%, transparent 25%),
+      linear-gradient(225deg, #06752F 25%, transparent 25%),
+      linear-gradient(45deg, #06752F 25%, transparent 25%),
+      linear-gradient(315deg, #06752F 25%, transparent 25%);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 0, 30px -30px, 0px -30px;
+  }
+
+  .hairline-grid {
+    background-image:
+      linear-gradient(to right, oklch(0.5 0 0 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.5 0 0 / 0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .nova-glow {
+    background: radial-gradient(ellipse at center, oklch(0.55 0.25 290 / 0.35) 0%, transparent 70%);
+  }
+
+  .ethiopian-glow {
+    background: radial-gradient(ellipse at center, rgba(243, 208, 45, 0.3) 0%, transparent 70%);
+  }
+
+  .accent-ethiopian-gold {
+    @apply text-[#F3D02D];
+  }
+
+  .accent-ethiopian-green {
+    @apply text-[#06752F];
+  }
+
+  .accent-ethiopian-red {
+    @apply text-[#EE334E];
+  }
+
+  .bg-ethiopian-gradient {
+    background: linear-gradient(135deg, #06752F 0%, #8B7355 50%, #F3D02D 100%);
+  }
+
+  .ethiopian-parchment {
+    background: linear-gradient(135deg, #F5E6D3 0%, #E8D4B8 100%);
+    position: relative;
+  }
+
+  .ethiopian-parchment::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(6, 117, 47, 0.03) 2px, rgba(6, 117, 47, 0.03) 4px);
+    pointer-events: none;
+  }
+}

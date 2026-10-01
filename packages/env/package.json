@@ -1,0 +1,21 @@
+{
+  "name": "@block_p/env",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./server": "./src/server.ts",
+    "./web": "./src/web.ts"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "^0.13.11",
+    "@t3-oss/env-nextjs": "^0.13.11",
+    "dotenv": "^17.4.2",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@block_p/config": "*",
+    "@types/node": "^22.13.14",
+    "typescript": "^6"
+  }
+}

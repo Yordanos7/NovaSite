@@ -1,0 +1,28 @@
+{
+  "name": "@block_p/api",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@block_p/auth": "*",
+    "@block_p/db": "*",
+    "@block_p/env": "*",
+    "@trpc/client": "^11.18.0",
+    "@trpc/server": "^11.18.0",
+    "better-auth": "1.6.23",
+    "dotenv": "^17.4.2",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@block_p/config": "*",
+    "@types/express": "^5.0.6",
+    "typescript": "^6"
+  }
+}

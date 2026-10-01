@@ -1,0 +1,41 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@block_p/api": "*",
+    "@block_p/env": "*",
+    "@block_p/ui": "*",
+    "@swc/helpers": "^0.5.23",
+    "@tanstack/react-form": "^1.33.0",
+    "@tanstack/react-query": "^5.101.2",
+    "@trpc/client": "^11.18.0",
+    "@trpc/server": "^11.18.0",
+    "@trpc/tanstack-react-query": "^11.18.0",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "better-auth": "1.6.23",
+    "dotenv": "^17.4.2",
+    "lucide-react": "^1.23.0",
+    "next": "^16.2.0",
+    "next-themes": "^0.4.6",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "sonner": "^2.0.7",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@block_p/config": "*",
+    "@tailwindcss/postcss": "^4.3.2",
+    "@tanstack/react-query-devtools": "^5.101.2",
+    "@types/node": "^20",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^4.3.2",
+    "typescript": "^6"
+  }
+}

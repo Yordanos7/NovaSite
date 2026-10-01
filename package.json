@@ -1,0 +1,36 @@
+{
+  "name": "block_p",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "check-types": "turbo run check-types",
+    "dev:web": "turbo run dev -F web",
+    "dev:server": "turbo run dev -F server",
+    "db:push": "turbo run db:push -F @block_p/db",
+    "db:studio": "turbo run db:studio -F @block_p/db",
+    "db:generate": "turbo run db:generate -F @block_p/db",
+    "db:migrate": "turbo run db:migrate -F @block_p/db",
+    "db:start": "turbo run db:start -F @block_p/db",
+    "db:watch": "turbo run db:watch -F @block_p/db",
+    "db:stop": "turbo run db:stop -F @block_p/db",
+    "db:down": "turbo run db:down -F @block_p/db"
+  },
+  "dependencies": {
+    "@block_p/env": "*",
+    "dotenv": "^17.4.2",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@block_p/config": "*",
+    "@types/node": "^22.13.14",
+    "turbo": "^2.10.2",
+    "typescript": "^6"
+  },
+  "packageManager": "npm@10.9.4"
+}
