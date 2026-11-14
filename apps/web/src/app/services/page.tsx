@@ -1,102 +1,80 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { services } from "@/data/site";
+import { ArrowRight, CheckCircle2, PhoneCall } from "lucide-react";
+import { services, contactDetails } from "@/data/site";
+import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
-  title: "Services — Nova Tech",
-  description: "Web & mobile apps, backend systems, AI integration and technical consulting.",
-};
-
-const included: Record<string, string[]> = {
-  "web-mobile": [
-    "Product and interaction design",
-    "React / TypeScript front ends",
-    "Design systems and component libraries",
-    "Accessibility and performance budgets",
-    "Automated test coverage and CI",
-  ],
-  "backend-cloud": [
-    "API and data model design",
-    "Postgres, queues and event pipelines",
-    "Cloud infrastructure as code",
-    "Observability, alerting and runbooks",
-    "Migration from legacy systems",
-  ],
-  "ai-integration": [
-    "Use-case scoping and feasibility review",
-    "Retrieval pipelines over your own data",
-    "Evaluation harnesses and quality gates",
-    "Human review and fallback flows",
-    "Cost and latency monitoring",
-  ],
-  consulting: [
-    "Codebase and architecture audits",
-    "Technical due diligence for investors",
-    "Hiring and team structure advice",
-    "Delivery process and release strategy",
-    "Embedded pairing with your engineers",
-  ],
-};
-
-const audience: Record<string, string> = {
-  "web-mobile": "Companies replacing spreadsheets, legacy portals or an unmaintained internal tool with something people actually want to use.",
-  "backend-cloud": "Teams whose product works but whose backend is slow, fragile, expensive, or all three at once.",
-  "ai-integration": "Organisations with a repetitive, document-heavy or triage-heavy process and a clear definition of what a good answer looks like.",
-  consulting: "CTOs, heads of engineering and institutions making a build-versus-buy or replatform decision.",
-};
-
-const engagement: Record<string, string> = {
-  "web-mobile": "6–16 weeks, one designer and one to three engineers, shipped in two-week increments with a working build at the end of each.",
-  "backend-cloud": "8–20 weeks, starting with a two-week architecture review that produces a written plan you own whether or not you continue with us.",
-  "ai-integration": "Four-week evaluation pilot against your own data first. We only move to production once the numbers clear the bar you set.",
-  consulting: "From a two-week fixed-scope review to an ongoing day-a-week advisory retainer. Always ends in a written document, never just a call.",
+  title: "Engineering Services — Nova Habesha ERP Ethiopia",
+  description:
+    "Mobile app development, custom ERP software, Telebirr & Chapa payment integrations, applied AI, and technical consulting in Addis Ababa, Ethiopia.",
 };
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Page header */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-          <p className="eyebrow">Services</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.08] sm:text-5xl">
-            Four ways we work with clients
+      {/* Header */}
+      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-transparent via-[#0866F6]/5 to-transparent">
+        <EthiopianAccentLine />
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1 text-xs font-medium text-[#0866F6] dark:text-[#38BDF8]">
+            <span>End-to-End Digital Engineering</span>
+          </div>
+          <h1 className="mt-4 max-w-3xl font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+            Software Services Built for Real Operations
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Every engagement starts with a discovery phase. We scope the problem before proposing a solution, and we
-            only take on work where we have done it before.
+          <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground">
+            Every engagement starts with discovery and architecture. We scope your workflows, integrate local payment systems, and deliver working software every two weeks.
           </p>
         </div>
       </section>
 
-      {/* Services list */}
+      {/* Services List */}
       {services.map((s, i) => (
-        <section key={s.slug} id={s.slug} className="border-b border-border">
-          <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        <section key={s.slug} id={s.slug} className="scroll-mt-20 border-b border-border py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-6">
             <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
               <div>
-                <span className="font-mono text-[11px] text-primary">{String(i + 1).padStart(2, "0")}</span>
-                <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">{s.name}</h2>
-                <p className="mt-5 text-base leading-relaxed text-muted-foreground">{s.summary}</p>
-                <div className="mt-8 space-y-4">
+                <span className="font-mono text-xs font-bold text-[#0866F6] dark:text-[#38BDF8]">
+                  0{i + 1} // SERVICE
+                </span>
+                <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl text-foreground">{s.name}</h2>
+                <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground">{s.summary}</p>
+
+                <div className="mt-8 space-y-5 border-t border-border pt-6">
                   <div>
-                    <p className="eyebrow mb-3">Who it is for</p>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{audience[s.slug]}</p>
+                    <p className="font-mono text-xs uppercase tracking-wider text-[#0866F6] dark:text-[#38BDF8] mb-1.5 font-semibold">
+                      Target Audience
+                    </p>
+                    <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">{s.audience}</p>
                   </div>
                   <div>
-                    <p className="eyebrow mb-3">Typical engagement</p>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{engagement[s.slug]}</p>
+                    <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-1.5 font-semibold">
+                      Typical Delivery Cycle
+                    </p>
+                    <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">{s.engagement}</p>
                   </div>
                 </div>
+
+                <div className="mt-8">
+                  <Link
+                    href={`/contact?service=${s.slug}` as any}
+                    className="inline-flex items-center gap-2 rounded-md bg-[#0866F6] px-5 py-2.5 text-xs font-semibold text-white shadow-md shadow-blue-500/20 transition-all hover:bg-[#0650c5]"
+                  >
+                    Discuss This Service <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </div>
-              <div className="rounded-lg border border-border bg-secondary/20 p-8">
-                <p className="eyebrow mb-5">What is included</p>
-                <ul className="space-y-3">
-                  {included[s.slug]?.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
-                      {item}
+
+              <div className="rounded-xl border border-border bg-card p-8 shadow-sm">
+                <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-6 font-semibold">
+                  What Is Included
+                </p>
+                <ul className="space-y-4">
+                  {s.included.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#0866F6] dark:text-[#38BDF8]" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -107,31 +85,29 @@ export default function ServicesPage() {
       ))}
 
       {/* CTA */}
-      <section className="relative overflow-hidden">
-        <div className="hairline-grid pointer-events-none absolute inset-0 opacity-40" />
-        <div className="nova-glow pointer-events-none absolute left-1/2 top-full h-[420px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40" />
-        <div className="relative mx-auto max-w-6xl px-6 py-20 text-center sm:py-24">
-          <p className="eyebrow">Next step</p>
-          <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-semibold leading-tight sm:text-4xl">
-            Tell us what is not working, and we will tell you honestly whether we can help.
+      <section className="relative overflow-hidden py-20 text-center">
+        <div className="mx-auto max-w-4xl px-6">
+          <p className="text-xs font-mono uppercase tracking-wider text-[#0866F6] dark:text-[#38BDF8]">Ready to transform your operations?</p>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold text-foreground">
+            Book a Free 30-Minute Scoping Call
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            A first conversation is 30 minutes, involves an engineer rather than a salesperson, and ends with a written
-            summary of what we heard.
+          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
+            Talk with a lead engineer in Addis Ababa. We will review your requirements and provide an honest estimate.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/85 border border-primary/60 shadow-[0_10px_40px_-18px_var(--primary)]"
+              className="inline-flex items-center justify-center rounded-md bg-[#0866F6] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/20 transition-all hover:bg-[#0650c5]"
             >
-              Start a project
+              Start Free Consultation
             </Link>
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-1.5 rounded-md border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:border-foreground/35 hover:bg-secondary/60"
+            <a
+              href={`tel:${contactDetails.phone}`}
+              className="inline-flex items-center justify-center rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground hover:border-[#0866F6] hover:text-[#0866F6] transition-all"
             >
-              See our work <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+              <PhoneCall className="mr-2 h-4 w-4 text-[#0866F6] dark:text-[#38BDF8]" />
+              Call {contactDetails.displayPhone}
+            </a>
           </div>
         </div>
       </section>

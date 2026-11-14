@@ -1,106 +1,189 @@
 "use client";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle, PhoneCall } from "lucide-react";
+import { contactDetails } from "@/data/site";
 
-const services = ["Web & Mobile Apps", "Backend & Cloud Systems", "AI Integration", "Technical Consulting", "Not sure yet"];
+const options = [
+  "Nova Habesha ERP System",
+  "Digital Equb Platform",
+  "Ride Hailing & Dispatch App",
+  "Telebirr / Chapa E-Commerce",
+  "eSchool Management ERP",
+  "Hospital & Clinic PMS",
+  "Mobile App Development",
+  "Custom Software & Cloud Systems",
+  "AI & Automation",
+  "Other / Architecture Review",
+];
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   function toggle(s: string) {
-    setSelected((prev) => prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]);
+    setSelected((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
   }
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-start justify-center rounded-lg border border-border bg-secondary/20 p-10">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-primary/10">
-          <span className="font-mono text-lg text-primary">✓</span>
+      <div className="flex flex-col items-start justify-center rounded-xl border border-blue-500/30 bg-blue-500/5 p-10 shadow-md">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0866F6] text-white">
+          <CheckCircle2 className="h-6 w-6" />
         </div>
-        <h2 className="mt-6 text-2xl font-semibold">Message received</h2>
+        <h2 className="mt-6 font-display text-2xl font-bold text-foreground">Inquiry Received</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          We will read it and reply within one business day. If it sounds like a fit, we will suggest a 30-minute call.
+          Thank you, <strong className="text-foreground">{name || "there"}</strong>. Our lead engineer in Addis Ababa will review your requirements and reach out via phone or email within one business day.
         </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a
+            href={contactDetails.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md bg-[#25D366] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1EBE5D]"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Connect directly on WhatsApp
+          </a>
+          <button
+            type="button"
+            onClick={() => setSubmitted(false)}
+            className="text-xs text-muted-foreground hover:underline px-2 py-2"
+          >
+            Submit another inquiry
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
     <form
-      onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-      className="space-y-8"
+      onSubmit={(e) => {
+        e.preventDefault();
+        setSubmitted(true);
+      }}
+      className="space-y-6 rounded-xl border border-border bg-card p-8 shadow-sm"
     >
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <label htmlFor="name" className="eyebrow">Your name</label>
+          <label htmlFor="name" className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+            Full Name *
+          </label>
           <input
             id="name"
-            type="text"
             required
-            placeholder="Jane Smith"
-            className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Abebe Kebede"
+            className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-[#0866F6] focus:ring-2 focus:ring-[#0866F6]/20"
           />
         </div>
+
         <div className="space-y-2">
-          <label htmlFor="email" className="eyebrow">Work email</label>
+          <label htmlFor="phone" className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+            Phone (Ethiopia / Int'l) *
+          </label>
           <input
-            id="email"
-            type="email"
+            id="phone"
             required
-            placeholder="jane@company.com"
-            className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="+251 91 123 4567"
+            className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-[#0866F6] focus:ring-2 focus:ring-[#0866F6]/20"
           />
         </div>
       </div>
 
-      <div className="space-y-2">
-        <label htmlFor="company" className="eyebrow">Company</label>
-        <input
-          id="company"
-          type="text"
-          placeholder="Acme Corp"
-          className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
-        />
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div className="space-y-2">
+          <label htmlFor="email" className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+            Work Email *
+          </label>
+          <input
+            id="email"
+            required
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="abebe@company.com"
+            className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-[#0866F6] focus:ring-2 focus:ring-[#0866F6]/20"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="company" className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+            Organization / Company
+          </label>
+          <input
+            id="company"
+            type="text"
+            placeholder="Nova Habesha PLC, NGO, etc."
+            className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-[#0866F6] focus:ring-2 focus:ring-[#0866F6]/20"
+          />
+        </div>
       </div>
 
       <div className="space-y-3">
-        <p className="eyebrow">What are you looking for?</p>
+        <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+          What products or services do you need?
+        </p>
         <div className="flex flex-wrap gap-2">
-          {services.map((s) => (
+          {options.map((opt) => (
             <button
-              key={s}
+              key={opt}
               type="button"
-              onClick={() => toggle(s)}
-              className={`rounded-md border px-3.5 py-1.5 text-sm transition-colors ${
-                selected.includes(s)
-                  ? "border-primary/60 bg-primary/10 text-foreground"
-                  : "border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground"
+              onClick={() => toggle(opt)}
+              className={`rounded-md border px-3 py-1.5 text-xs font-medium transition-all ${
+                selected.includes(opt)
+                  ? "border-[#0866F6] bg-[#0866F6] text-white shadow-sm"
+                  : "border-border text-muted-foreground hover:border-[#0866F6]/50 hover:text-foreground"
               }`}
             >
-              {s}
+              {opt}
             </button>
           ))}
         </div>
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="message" className="eyebrow">Tell us what is not working</label>
+        <label htmlFor="message" className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+          Project Overview / Challenge *
+        </label>
         <textarea
           id="message"
           required
-          rows={5}
-          placeholder="Describe the problem, not the solution. What is breaking, slow, or missing?"
-          className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-primary/60 focus:ring-2 focus:ring-primary/20 resize-none"
+          rows={4}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Describe your workflows, goals, target audience, or desired launch timeframe..."
+          className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-[#0866F6] focus:ring-2 focus:ring-[#0866F6]/20 resize-none"
         />
       </div>
 
-      <button
-        type="submit"
-        className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/85 border border-primary/60 shadow-[0_10px_40px_-18px_var(--primary)]"
-      >
-        Send message <ArrowRight className="h-4 w-4" />
-      </button>
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+        <button
+          type="submit"
+          className="inline-flex items-center gap-2 rounded-md bg-[#0866F6] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-[#0650c5]"
+        >
+          Submit Project Inquiry <ArrowRight className="h-4 w-4" />
+        </button>
+
+        <a
+          href={contactDetails.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-[#25D366] hover:underline"
+        >
+          <MessageCircle className="h-4 w-4" />
+          Or message us directly on WhatsApp
+        </a>
+      </div>
     </form>
   );
 }

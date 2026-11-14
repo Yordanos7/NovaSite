@@ -1,75 +1,109 @@
 import type { Metadata } from "next";
 import { contactDetails } from "@/data/site";
 import ContactForm from "./ContactForm";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
-  title: "Start a project — Nova Tech",
-  description: "Tell us what is not working. A first conversation is 30 minutes and ends with a written summary.",
+  title: "Contact & Project Consultation — Nova Habesha ERP",
+  description:
+    "Book a free technical consultation with Nova Habesha ERP in Addis Ababa. Discuss your ERP, mobile app, fintech integration, or custom software requirements.",
 };
 
 export default function ContactPage() {
   return (
     <>
-      {/* Page header */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-          <p className="eyebrow">Start a project</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.08] sm:text-5xl">
-            Tell us what is not working.
+      {/* Header */}
+      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-transparent via-[#0866F6]/5 to-transparent">
+        <EthiopianAccentLine />
+        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1 text-xs font-medium text-[#0866F6] dark:text-[#38BDF8]">
+            <span>Addis Ababa Office & Online Consultation</span>
+          </div>
+          <h1 className="mt-4 max-w-4xl font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+            Start Your Enterprise Project
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            A first conversation is 30 minutes, involves an engineer rather than a salesperson, and ends with a written
-            summary of what we heard — whether or not we continue.
+          <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground">
+            Book a 30-minute consultation with a senior software architect. We review your requirements, technical feasibility, and provide an honest scoped proposal.
           </p>
         </div>
       </section>
 
-      {/* Form + details */}
-      <section className="border-b border-border">
-        <div className="mx-auto grid max-w-6xl gap-16 px-6 py-16 sm:py-20 lg:grid-cols-[1fr_380px]">
-          <ContactForm />
+      {/* Form + Sidebar */}
+      <section className="border-b border-border py-16 sm:py-20">
+        <div className="mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-[1fr_380px]">
+          <div>
+            <div className="mb-8">
+              <h2 className="font-display text-2xl font-bold text-foreground">Tell Us About Your Project</h2>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Fill in the details below or message us directly on WhatsApp or Telegram.
+              </p>
+            </div>
+            <ContactForm />
+          </div>
 
-          <aside className="space-y-10">
-            <div>
-              <p className="eyebrow mb-4">What happens next</p>
+          <aside className="space-y-8">
+            <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+              <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-4">
+                What Happens Next
+              </h3>
               <ol className="space-y-4">
                 {[
-                  "We read your message and reply within one business day.",
-                  "If it sounds like a fit, we schedule a 30-minute call with an engineer.",
-                  "After the call you receive a written summary of what we heard.",
-                  "If you want to continue, we propose a discovery engagement.",
+                  "We review your project goals within 24 hours.",
+                  "A senior architect connects for a 30-minute scoping call.",
+                  "We deliver a written technical summary and architecture roadmap.",
+                  "We propose fixed sprint milestones with transparent pricing.",
                 ].map((step, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-primary/40 font-mono text-[10px] text-primary">
+                  <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-muted-foreground">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/10 font-mono text-[11px] font-bold text-[#0866F6] dark:text-[#38BDF8]">
                       {i + 1}
                     </span>
-                    {step}
+                    <span>{step}</span>
                   </li>
                 ))}
               </ol>
             </div>
 
-            <div className="border-t border-border pt-8">
-              <p className="eyebrow mb-4">Contact details</p>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li>
-                  <a
-                    href={`mailto:${contactDetails.email}`}
-                    className="transition-colors hover:text-foreground"
-                  >
+            <div className="rounded-xl border border-border bg-secondary/20 p-6 space-y-4">
+              <h3 className="font-mono text-xs uppercase tracking-wider text-muted-foreground font-semibold">
+                Direct Contact Information
+              </h3>
+              <ul className="space-y-3 text-xs text-muted-foreground">
+                <li className="flex items-start gap-2.5">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#0866F6] dark:text-[#38BDF8]" />
+                  <span>{contactDetails.location}</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <Phone className="h-4 w-4 shrink-0 text-[#0866F6] dark:text-[#38BDF8]" />
+                  <a href={`tel:${contactDetails.phone}`} className="font-mono hover:text-foreground">
+                    {contactDetails.secondaryDisplayPhone
+                      ? `${contactDetails.displayPhone} / ${contactDetails.secondaryDisplayPhone}`
+                      : contactDetails.displayPhone}
+                  </a>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <Mail className="h-4 w-4 shrink-0 text-[#0866F6] dark:text-[#38BDF8]" />
+                  <a href={`mailto:${contactDetails.email}`} className="hover:text-foreground">
                     {contactDetails.email}
                   </a>
                 </li>
-                <li>{contactDetails.location}</li>
+                <li className="flex items-center gap-2.5">
+                  <Clock className="h-4 w-4 shrink-0 text-[#0866F6] dark:text-[#38BDF8]" />
+                  <span>{contactDetails.workingHours}</span>
+                </li>
               </ul>
-            </div>
 
-            <div className="rounded-lg border border-border bg-secondary/20 p-6">
-              <p className="text-sm font-medium">Not ready to start?</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Most engagements start with a two-week discovery. You keep the findings either way — there is no
-                obligation to continue.
-              </p>
+              <div className="pt-3 border-t border-border">
+                <a
+                  href={contactDetails.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#25D366] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1EBE5D] transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Chat on WhatsApp Now
+                </a>
+              </div>
             </div>
           </aside>
         </div>

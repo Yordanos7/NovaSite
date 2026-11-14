@@ -1,32 +1,44 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono, Playfair_Display, Crimson_Text } from "next/font/google";
 
 import "../index.css";
 import Providers from "@/components/providers";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
-const spaceGrotesk = Space_Grotesk({ variable: "--font-display", subsets: ["latin"], weight: ["500", "600", "700"] });
-const jetbrainsMono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"], weight: ["400", "500"] });
-const playfairDisplay = Playfair_Display({ variable: "--font-serif", subsets: ["latin"], weight: ["700", "800", "900"] });
-const crimsonText = Crimson_Text({ variable: "--font-crimson", subsets: ["latin"], weight: ["400", "600"] });
+import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 
 export const metadata: Metadata = {
-  title: "Nova Teach — Ethiopian-led software solutions for African businesses",
+  title: "Nova Habesha ERP — Enterprise Software & Digital Systems in Ethiopia",
   description:
-    "Nova Teach is an African tech company building custom web apps, backend systems, AI solutions, and technical consulting. We design software that understands Africa.",
+    "Nova Habesha is an enterprise software development company in Addis Ababa, Ethiopia. We build Nova Habesha ERP, mobile apps, digital Equb platforms, ride-hailing software, and custom web applications with Telebirr and Chapa integrations.",
+  keywords: [
+    "Nova Habesha ERP",
+    "ERP software Ethiopia",
+    "Enterprise Resource Planning Addis Ababa",
+    "Software company Ethiopia",
+    "Telebirr integration",
+    "Chapa payment gateway",
+    "Digital Equb app",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} ${crimsonText.variable} antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Grotesk:wght@300..700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="font-sans antialiased">
         <Providers>
           <div className="flex min-h-screen flex-col">
             <SiteHeader />
             <main className="flex-1">{children}</main>
             <SiteFooter />
+            <WhatsAppFloat />
           </div>
         </Providers>
       </body>

@@ -121,8 +121,8 @@ export function HeroVisual() {
             for (const p of projected) {
                 const depth = (p.z + 1) / 2;
                 const grad = ctx.createLinearGradient(cx, cy, p.x, p.y);
-                grad.addColorStop(0, `rgba(124, 92, 255, ${0.28 * depth})`);
-                grad.addColorStop(1, "rgba(124, 92, 255, 0)");
+                grad.addColorStop(0, `rgba(8, 102, 246, ${0.35 * depth})`);
+                grad.addColorStop(1, "rgba(56, 189, 248, 0)");
                 ctx.strokeStyle = grad;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
@@ -138,8 +138,8 @@ export function HeroVisual() {
                 const pb = projected[b]!;
                 const depth = (pa.z + pb.z) / 2;
                 const alpha = 0.14 + ((depth + 1) / 2) * 0.6;
-                ctx.strokeStyle = `rgba(245, 246, 250, ${alpha * 0.55})`;
-                ctx.lineWidth = depth > 0 ? 1.15 : 0.6;
+                ctx.strokeStyle = `rgba(186, 230, 253, ${alpha * 0.65})`;
+                ctx.lineWidth = depth > 0 ? 1.2 : 0.6;
                 ctx.beginPath();
                 ctx.moveTo(pa.x, pa.y);
                 ctx.lineTo(pb.x, pb.y);
@@ -150,7 +150,7 @@ export function HeroVisual() {
             for (const p of projected) {
                 const depth = (p.z + 1) / 2;
                 ctx.fillStyle =
-                    p.z > 0.55 ? `rgba(255, 107, 74, ${0.5 + depth * 0.5})` : `rgba(124, 92, 255, ${0.35 + depth * 0.6})`;
+                    p.z > 0.4 ? `rgba(56, 189, 248, ${0.7 + depth * 0.3})` : `rgba(8, 102, 246, ${0.5 + depth * 0.5})`;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, 1.2 + depth * 2.2, 0, Math.PI * 2);
                 ctx.fill();
@@ -158,8 +158,8 @@ export function HeroVisual() {
 
             // core
             const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, r * 0.9);
-            core.addColorStop(0, "rgba(124, 92, 255, 0.45)");
-            core.addColorStop(0.4, "rgba(124, 92, 255, 0.10)");
+            core.addColorStop(0, "rgba(8, 102, 246, 0.5)");
+            core.addColorStop(0.4, "rgba(0, 38, 123, 0.25)");
             core.addColorStop(1, "rgba(10, 14, 26, 0)");
             ctx.fillStyle = core;
             ctx.beginPath();
