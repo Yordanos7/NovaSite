@@ -5,9 +5,9 @@ import { caseStudies, contactDetails } from "@/data/site";
 import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
-  title: "Case Studies & Work — Nova Habesha ERP Ethiopia",
+  title: "Case Studies & Work — Ethiora Technology PLC Ethiopia",
   description:
-    "Explore how Nova Habesha built and scaled digital products across Ethiopia: Peace Ride Hailing, eSchool ERP, Damay Digital Equb, and SilkRoad Marketplace.",
+    "Explore how Ethiora Technology PLC built and scaled digital products across Ethiopia: Peace Ride Hailing, eSchool ERP, Damay Digital Equb, and SilkRoad Marketplace.",
 };
 
 export default function WorkPage() {

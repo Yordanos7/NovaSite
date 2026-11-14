@@ -18,9 +18,9 @@ import {
 import { contactDetails } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Official Business Card — Nova Habesha ERP",
+  title: "Official Business Card — Ethiora Technology PLC",
   description:
-    "Official corporate business card for Nova Habesha ERP and Yordanos Yohans. Print-ready standard 3.5x2 inch format, digital vCard download, and direct contact details.",
+    "Official corporate business card for Ethiora Technology PLC and Yordanos Yohans. Print-ready standard 3.5x2 inch format, digital vCard download, and direct contact details.",
 };
 
 export default function BusinessCardPage() {
@@ -35,7 +35,7 @@ export default function BusinessCardPage() {
             <span>Official Corporate Identity & Executive Card</span>
           </div>
           <h1 className="mt-4 max-w-4xl font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
-            Nova Habesha ERP Business Card
+            Ethiora Technology PLC Business Card
           </h1>
           <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-muted-foreground">
             Standard 3.5" × 2" (88.9mm × 50.8mm) executive business card for Yordanos Yohans, Founder & Lead Software Architect.
@@ -106,7 +106,7 @@ export default function BusinessCardPage() {
           <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card shadow-2xl">
             <Image
               src="/nova-habesha-erp-business-card.jpg"
-              alt="Nova Habesha ERP Business Card 3D Studio Mockup"
+              alt="Ethiora Technology PLC Business Card 3D Studio Mockup"
               width={1920}
               height={1080}
               className="w-full h-auto object-cover"

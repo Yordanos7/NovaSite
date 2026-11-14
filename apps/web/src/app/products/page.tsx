@@ -5,9 +5,9 @@ import { products, contactDetails } from "@/data/site";
 import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
-  title: "Specialized Products — Nova Habesha ERP Ethiopia",
+  title: "Specialized Products — Ethiora Technology PLC Ethiopia",
   description:
-    "Explore our ready-made and custom enterprise digital platforms: Nova Habesha ERP, Digital Equb, Ride Hailing, E-Commerce, School ERP, and Healthcare systems.",
+    "Explore our ready-made and custom enterprise digital platforms: Ethiora ERP, Ethiora HMS (Hospital Management), Digital Equb, Ride Hailing, E-Commerce, and School ERP.",
 };
 
 export default function ProductsPage() {
@@ -24,7 +24,7 @@ export default function ProductsPage() {
             Enterprise Software Products Built for Scale
           </h1>
           <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground">
-            From Nova Habesha ERP and supply chain to digitized community savings and transport ecosystems — discover our battle-tested platforms with native Telebirr, Chapa, and CBE Birr integrations.
+            From Ethiora ERP and clinical healthcare systems to digitized community savings and transport ecosystems — discover our battle-tested platforms with native Telebirr, Chapa, and CBE Birr integrations.
           </p>
         </div>
       </section>

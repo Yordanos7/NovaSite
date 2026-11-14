@@ -17,28 +17,28 @@ const nav = [
 
 function Wordmark() {
   return (
-    <Link href="/" className="group flex items-center gap-3" aria-label="Nova Habesha ERP home">
-      <div className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-card border border-border/80 shadow-md transition-transform group-hover:scale-105">
+    <Link href="/" className="group flex items-center gap-3" aria-label="Ethiora Technology PLC home">
+      <div className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white border border-border/80 shadow-md transition-transform group-hover:scale-105 p-1">
         <Image
-          src="/logos/nova-habesha-erp-logo-transparent.png"
-          alt="Nova Habesha ERP Logo"
+          src="/logos/ethiora-emblem.jpg"
+          alt="Ethiora Technology PLC Logo"
           width={44}
           height={44}
-          className="h-full w-full object-contain p-0.5"
+          className="h-full w-full object-contain"
           priority
         />
       </div>
       <div className="flex flex-col leading-none">
         <div className="flex items-center gap-1.5">
           <span className="font-display text-lg font-bold tracking-tight text-foreground group-hover:text-[#0866F6] transition-colors">
-            Nova Habesha
+            ETHIORA
           </span>
-          <span className="font-mono text-[9px] font-bold text-[#0866F6] dark:text-[#38BDF8] bg-[#0866F6]/10 border border-[#0866F6]/30 px-1 py-0.5 rounded uppercase">
-            ERP
+          <span className="font-mono text-[9px] font-bold text-[#0866F6] dark:text-[#38BDF8] bg-[#0866F6]/10 border border-[#0866F6]/30 px-1.5 py-0.5 rounded uppercase">
+            PLC
           </span>
         </div>
-        <span className="font-mono text-[10px] tracking-wider text-muted-foreground uppercase mt-0.5">
-          Enterprise Systems
+        <span className="font-mono text-[9px] tracking-wider text-muted-foreground uppercase mt-0.5 font-medium">
+          Technology PLC
         </span>
       </div>
     </Link>

@@ -5,7 +5,7 @@ import { industries, caseStudies, contactDetails } from "@/data/site";
 import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
-  title: "Industries & Sectors — Nova Habesha ERP Ethiopia",
+  title: "Industries & Sectors — Ethiora Technology PLC Ethiopia",
   description:
     "Tailored enterprise digital solutions across banking & fintech, education, transport, healthcare, retail, and hospitality in Ethiopia.",
 };

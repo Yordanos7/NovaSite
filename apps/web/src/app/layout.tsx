@@ -7,17 +7,20 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 
 export const metadata: Metadata = {
-  title: "Nova Habesha ERP — Enterprise Software & Digital Systems in Ethiopia",
+  title: "Ethiora Technology PLC — Enterprise Software, AI & Digital Systems in Ethiopia",
   description:
-    "Nova Habesha is an enterprise software development company in Addis Ababa, Ethiopia. We build Nova Habesha ERP, mobile apps, digital Equb platforms, ride-hailing software, and custom web applications with Telebirr and Chapa integrations.",
+    "Ethiora Technology PLC is a leading enterprise software engineering company in Ethiopia. We build enterprise ERPs, clinical healthcare software (Ethiora HMS), mobile apps, digital Equb platforms, ride-hailing software, and high-conversion web applications with native Telebirr and Chapa integrations.",
   keywords: [
-    "Nova Habesha ERP",
-    "ERP software Ethiopia",
-    "Enterprise Resource Planning Addis Ababa",
+    "Ethiora Technology PLC",
+    "Ethiora",
+    "Ethiora HMS",
+    "Ethiora ERP",
     "Software company Ethiopia",
+    "Enterprise Resource Planning Addis Ababa",
     "Telebirr integration",
     "Chapa payment gateway",
     "Digital Equb app",
+    "IT Outsourcing Ethiopia",
   ],
 };
 

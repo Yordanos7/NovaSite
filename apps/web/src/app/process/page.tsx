@@ -5,9 +5,9 @@ import { processSteps, contactDetails } from "@/data/site";
 import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
-  title: "Delivery Process & Methodology — Nova Habesha ERP Ethiopia",
+  title: "Delivery Process & Methodology — Ethiora Technology PLC Ethiopia",
   description:
-    "How Nova Habesha engineers digital systems in Addis Ababa: Discovery, Architecture, 2-Week Agile Sprints, QA & Local Payment Verification, and Launch.",
+    "How Ethiora Technology PLC engineers digital systems in Ethiopia: Discovery, Architecture, 2-Week Agile Sprints, QA & Local Payment Verification, and Launch.",
 };
 
 export default function ProcessPage() {

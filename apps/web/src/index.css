@@ -8,7 +8,7 @@
   --font-crimson: "Crimson Text", serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* Nova Habesha Brand Colors (Matching Logo) */
+  /* Ethiora Technology PLC Brand Colors (Matching Logo) */
   --color-brand-blue: #0866F6;
   --color-brand-navy: #00267B;
   --color-brand-cyan: #38BDF8;
@@ -70,7 +70,8 @@
     background-size: 48px 48px;
   }
 
-  .nova-glow {
+  .nova-glow,
+  .ethiora-glow {
     background: radial-gradient(ellipse at center, rgba(8, 102, 246, 0.35) 0%, rgba(56, 189, 248, 0.12) 45%, transparent 70%);
   }
 

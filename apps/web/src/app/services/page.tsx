@@ -5,9 +5,9 @@ import { services, contactDetails } from "@/data/site";
 import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
-  title: "Engineering Services — Nova Habesha ERP Ethiopia",
+  title: "Engineering Services — Ethiora Technology PLC Ethiopia",
   description:
-    "Mobile app development, custom ERP software, Telebirr & Chapa payment integrations, applied AI, and technical consulting in Addis Ababa, Ethiopia.",
+    "Mobile app development, enterprise ERP & HMS software, Telebirr & Chapa payment integrations, IT outsourcing, applied AI, and technical consulting.",
 };
 
 export default function ServicesPage() {

@@ -40,27 +40,27 @@ export function SiteFooter() {
         {/* Brand & About */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-card border border-border/80 shadow-sm">
+            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white border border-border/80 shadow-sm p-1">
               <Image
-                src="/logos/nova-habesha-erp-logo-transparent.png"
-                alt="Nova Habesha ERP Logo"
+                src="/logos/ethiora-emblem.jpg"
+                alt="Ethiora Technology PLC Logo"
                 width={40}
                 height={40}
-                className="h-full w-full object-contain p-0.5"
+                className="h-full w-full object-contain"
               />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <p className="font-display text-base font-bold text-foreground">Nova Habesha</p>
+                <p className="font-display text-base font-bold text-foreground">ETHIORA</p>
                 <span className="font-mono text-[9px] font-bold text-[#0866F6] dark:text-[#38BDF8] bg-[#0866F6]/10 border border-[#0866F6]/30 px-1 py-0.5 rounded uppercase">
-                  ERP
+                  PLC
                 </span>
               </div>
-              <p className="font-mono text-[10px] tracking-wider text-muted-foreground uppercase">Enterprise Systems</p>
+              <p className="font-mono text-[10px] tracking-wider text-muted-foreground uppercase">Technology PLC</p>
             </div>
           </div>
           <p className="text-xs leading-relaxed text-muted-foreground">
-            A software development and AI engineering company headquartered in Addis Ababa, Ethiopia. We build mobile apps, ERPs, fintech platforms, and scalable digital systems engineered for the African market.
+            A software development and enterprise systems engineering company headquartered in Ethiopia. We build mobile apps, ERPs, clinical healthcare platforms (Ethiora HMS), fintech integrations, and scalable digital systems engineered for African and global enterprises.
           </p>
           <div className="space-y-2 pt-2 text-xs text-muted-foreground">
             <div className="flex items-start gap-2">
@@ -148,7 +148,7 @@ export function SiteFooter() {
       {/* Bottom Bar */}
       <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 sm:flex-row">
-          <span>© {new Date().getFullYear()} Nova Habesha Technologies PLC. Addis Ababa, Ethiopia.</span>
+          <span>© {new Date().getFullYear()} Ethiora Technology PLC. Addis Ababa, Ethiopia.</span>
           <div className="flex items-center gap-6">
             <Link href={"/business-card" as any} className="hover:text-foreground text-[#0866F6] dark:text-[#38BDF8] font-semibold transition-colors">
               Business Card (3.5" × 2")

@@ -4,13 +4,14 @@ import { ArrowRight, CheckCircle2, MessageCircle, PhoneCall } from "lucide-react
 import { contactDetails } from "@/data/site";
 
 const options = [
-  "Nova Habesha ERP System",
+  "Ethiora ERP & Enterprise Suite",
+  "Ethiora HMS (Hospital & Clinic PMS)",
   "Digital Equb Platform",
   "Ride Hailing & Dispatch App",
   "Telebirr / Chapa E-Commerce",
   "eSchool Management ERP",
-  "Hospital & Clinic PMS",
   "Mobile App Development",
+  "IT Outsourcing & Dedicated Teams",
   "Custom Software & Cloud Systems",
   "AI & Automation",
   "Other / Architecture Review",
@@ -123,7 +124,7 @@ export default function ContactForm() {
           <input
             id="company"
             type="text"
-            placeholder="Nova Habesha PLC, NGO, etc."
+            placeholder="Ethiora Partner, Enterprise, NGO, etc."
             className="w-full rounded-md border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors focus:border-[#0866F6] focus:ring-2 focus:ring-[#0866F6]/20"
           />
         </div>

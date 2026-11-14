@@ -5,9 +5,9 @@ import { ShieldCheck, Cpu, Layers, HeartHandshake, MapPin } from "lucide-react";
 import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
-  title: "About Us — Nova Habesha ERP Ethiopia",
+  title: "About Us — Ethiora Technology PLC Ethiopia",
   description:
-    "Nova Habesha is an Ethiopian enterprise software engineering company in Addis Ababa. Learn about our team, our mission, and our enterprise ERP systems.",
+    "Ethiora Technology PLC is a leading Ethiopian enterprise software engineering company. Learn about our team, our mission, and our enterprise software & healthcare systems.",
 };
 
 const values = [
@@ -47,7 +47,7 @@ export default function AboutPage() {
             Engineering Ethiopian Enterprise Excellence
           </h1>
           <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground">
-            Nova Habesha was founded to bridge world-class software engineering with deep Ethiopian enterprise insight. We turn complex workflows into scalable, resilient digital systems.
+            Ethiora Technology PLC was founded to bridge world-class software engineering with deep Ethiopian enterprise insight. We turn complex workflows into scalable, resilient digital systems.
           </p>
         </div>
       </section>
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 Our Story
               </span>
               <h2 className="mt-2 font-display text-2xl sm:text-3xl font-bold text-foreground">
-                Built in Addis Ababa for Africa
+                Built in Ethiopia for Africa & Beyond
               </h2>
               <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
                 <MapPin className="h-4 w-4 text-[#0866F6]" />
@@ -71,13 +71,13 @@ export default function AboutPage() {
 
             <div className="max-w-2xl space-y-5 text-sm sm:text-base leading-relaxed text-muted-foreground">
               <p>
-                Nova Habesha started with a clear observation: too many Ethiopian businesses were forced to choose between rigid, expensive foreign software that failed to integrate with Telebirr and local banking, or flimsy prototypes that crashed under real customer load.
+                Ethiora Technology PLC started with a clear observation: too many Ethiopian and African organizations were forced to choose between rigid, expensive foreign software that failed to integrate with Telebirr and local banking, or fragile prototypes that crashed under real customer load.
               </p>
               <p>
                 Led by software architect <strong className="text-foreground">Yordanos Yohans</strong>, we assembled an elite engineering team dedicated to building enterprise-grade systems with modern stacks: Next.js, React, Node.js, Flutter, and PostgreSQL.
               </p>
               <p>
-                Today, Nova Habesha powers mission-critical software across ride-hailing networks, multi-campus school ERPs, digital Equb platforms, and nationwide supply chain operations.
+                Today, Ethiora Technology PLC powers mission-critical software across healthcare (Ethiora HMS), ride-hailing networks, multi-campus school ERPs, digital Equb platforms, and nationwide supply chain operations.
               </p>
             </div>
           </div>

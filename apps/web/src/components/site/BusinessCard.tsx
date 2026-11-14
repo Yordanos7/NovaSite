@@ -33,13 +33,13 @@ export function BusinessCard() {
 VERSION:3.0
 N:Yohans;Yordanos;;;
 FN:Yordanos Yohans
-ORG:Nova Habesha Technologies PLC;Nova Habesha ERP
+ORG:Ethiora Technology PLC;Ethiora Systems
 TITLE:Founder & Lead Enterprise Architect
 TEL;TYPE=CELL,VOICE:${contactDetails.phone.replace(/\s+/g, "")}
 EMAIL:${contactDetails.email}
-URL:https://novasite.et
+URL:https://ethioratech.com
 ADR;TYPE=WORK:;;Bole Medhanialem;Addis Ababa;;;Ethiopia
-NOTE:Nova Habesha ERP - Ethiopian Enterprise Software & Cloud Systems
+NOTE:Ethiora Technology PLC - Ethiopian Enterprise Software, Ethiora HMS & Cloud Systems
 END:VCARD`;
 
   useEffect(() => {
@@ -47,7 +47,7 @@ END:VCARD`;
     if (qrMode === "phone") {
       target = `tel:${contactDetails.phone.replace(/\s+/g, "")}`;
     } else if (qrMode === "whatsapp") {
-      target = `https://wa.me/${contactDetails.phone.replace(/[^0-9]/g, "")}?text=Hello+Nova+Habesha+ERP%2C+I+want+to+inquire+about+the+ERP+system.`;
+      target = `https://wa.me/${contactDetails.phone.replace(/[^0-9]/g, "")}?text=Hello+Ethiora+Technology+PLC%2C+I+want+to+inquire+about+your+enterprise+systems.`;
     }
 
     QRCode.toDataURL(target, {
@@ -74,7 +74,7 @@ END:VCARD`;
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", "Yordanos_Yohans_Nova_ERP.vcf");
+    link.setAttribute("download", "Yordanos_Yohans_Ethiora_Tech.vcf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -237,11 +237,11 @@ END:VCARD`;
                     }`}
                   >
                     <Image
-                      src="/logos/nova-habesha-erp-logo-transparent.png"
-                      alt="Nova Habesha ERP Logo"
+                      src="/logos/ethiora-emblem.jpg"
+                      alt="Ethiora Technology PLC Logo"
                       width={38}
                       height={38}
-                      className="object-contain"
+                      className="object-contain rounded-lg"
                     />
                   </div>
                   <div>
@@ -251,10 +251,10 @@ END:VCARD`;
                           isDark ? "text-white" : "text-slate-900"
                         }`}
                       >
-                        Nova Habesha
+                        ETHIORA
                       </h3>
                       <span className="rounded bg-[#0866F6] px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-white">
-                        ERP
+                        PLC
                       </span>
                     </div>
                     <p
@@ -262,7 +262,7 @@ END:VCARD`;
                         isDark ? "text-slate-400" : "text-slate-500"
                       }`}
                     >
-                      Enterprise Resource Planning & Cloud
+                      Technology PLC · Software & Cloud
                     </p>
                   </div>
                 </div>
@@ -323,7 +323,7 @@ END:VCARD`;
                   <div className="flex items-center gap-2">
                     <Mail className="h-3 w-3 text-[#0866F6] dark:text-[#38BDF8] shrink-0" />
                     <span className={isDark ? "text-slate-300" : "text-slate-700"}>
-                      hello@novasite.et
+                      contact@ethioratech.com
                     </span>
                   </div>
 
@@ -332,7 +332,7 @@ END:VCARD`;
                     <div className="flex items-center gap-1.5">
                       <Globe className="h-3 w-3 text-[#0866F6] dark:text-[#38BDF8] shrink-0" />
                       <span className={isDark ? "text-slate-300" : "text-slate-700"}>
-                        www.novasite.et
+                        www.ethioratech.com
                       </span>
                     </div>
                     <span className="opacity-30">·</span>
@@ -426,18 +426,18 @@ END:VCARD`;
               <div className="flex items-center justify-between border-b border-current/10 pb-2.5">
                 <div className="flex items-center gap-2">
                   <Image
-                    src="/logos/nova-habesha-erp-logo-transparent.png"
+                    src="/logos/ethiora-emblem.jpg"
                     alt="Logo"
                     width={22}
                     height={22}
-                    className="object-contain"
+                    className="object-contain rounded"
                   />
                   <span className="font-display text-sm font-bold tracking-tight">
-                    NOVA HABESHA ERP SUITE
+                    ETHIORA TECHNOLOGY PLC
                   </span>
                 </div>
                 <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-500 font-semibold bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
-                  Ethiopian Market Standard
+                  Enterprise Standard
                 </span>
               </div>
 

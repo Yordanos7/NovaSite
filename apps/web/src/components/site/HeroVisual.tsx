@@ -181,7 +181,7 @@ export function HeroVisual() {
 
     return (
         <div className="relative aspect-square w-full max-w-[560px]" aria-hidden="true">
-            <div className="nova-glow pointer-events-none absolute inset-[12%] rounded-full opacity-60" />
+            <div className="ethiora-glow pointer-events-none absolute inset-[12%] rounded-full opacity-60" />
             <canvas ref={canvasRef} className="relative h-full w-full" />
         </div>
     );

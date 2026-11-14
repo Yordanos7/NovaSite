@@ -5,9 +5,9 @@ import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
-  title: "Contact & Project Consultation — Nova Habesha ERP",
+  title: "Contact & Project Consultation — Ethiora Technology PLC",
   description:
-    "Book a free technical consultation with Nova Habesha ERP in Addis Ababa. Discuss your ERP, mobile app, fintech integration, or custom software requirements.",
+    "Book a free technical consultation with Ethiora Technology PLC. Discuss your ERP, Ethiora HMS, mobile app, fintech integration, or custom software requirements.",
 };
 
 export default function ContactPage() {

@@ -1,6 +1,8 @@
-# NovaSite
+# Ethiora Technology PLC — Official Web Platform
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Express, TRPC, and more.
+The official digital presence and enterprise platform for **Ethiora Technology PLC** (ኢትዮራ ቴክኖሎጂ ኃላፊነቱ የተወሰነ የግል ማህበር).
+
+Enterprise software engineering, clinical healthcare software (Ethiora HMS), fintech integrations (Telebirr & Chapa), digital Equb platforms, ride-hailing ecosystems, and IT outsourcing.
 
 ## Features
 
