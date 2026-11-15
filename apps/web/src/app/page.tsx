@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -20,6 +21,7 @@ import {
 } from "lucide-react";
 import { HeroVisual } from "@/components/site/HeroVisual";
 import { EthiopianCrossPattern, EthiopianAccentLine } from "@/components/site/EthiopianPattern";
+import { LogoCarousel } from "@/components/site/LogoCarousel";
 import { products, services, caseStudies, industries, processSteps, stats, clients, contactDetails } from "@/data/site";
 
 export default function Home() {
@@ -87,20 +89,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partner & Integration Logos */}
-      <section className="border-b border-border bg-secondary/15 py-8">
+      {/* Partner & Integration Logos Carousel (Scrolling Right to Left) */}
+      <section className="border-b border-border bg-secondary/15 py-8 overflow-hidden">
         <div className="mx-auto max-w-6xl px-6">
           <p className="text-xs font-mono uppercase tracking-wider text-center text-muted-foreground">
-            Trusted by forward-thinking businesses & verified integration partners
+            Trusted by Ethiopian Enterprises & Verified Integration Partners
           </p>
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-            {clients.map((c) => (
-              <li key={c} className="flex items-center gap-2 text-xs font-mono font-medium text-muted-foreground transition-opacity hover:opacity-100">
-                <span className="h-2 w-2 rotate-45 border-2 border-[#0866F6] dark:border-[#38BDF8]" />
-                <span>{c}</span>
-              </li>
-            ))}
-          </ul>
+        </div>
+        <div className="mt-4">
+          <LogoCarousel />
         </div>
       </section>
 
@@ -251,29 +248,25 @@ export default function Home() {
           <div className="grid gap-10 rounded-2xl border border-border bg-card p-8 lg:grid-cols-2 lg:p-12 shadow-lg">
             <div className="flex flex-col justify-between">
               <div>
-                <span className="font-mono text-xs uppercase tracking-wider text-[#0866F6]">
-                  Case Study · Logistics & Transport
+                <span className="font-mono text-xs uppercase tracking-wider text-[#0866F6] font-semibold">
+                  Featured Case Study · {caseStudies[0]?.industry}
                 </span>
                 <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold text-foreground">
-                  Peace Ride: Scaling 120,000+ Monthly Rides Across Addis Ababa
+                  {caseStudies[0]?.headline}
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Rebuilt the passenger app, driver app, and dispatch dashboard with automated Telebirr fare settlement. Passenger wait times dropped to 4.2 seconds with 99.98% uptime during rush hour traffic.
+                  Developed an enterprise-grade digital portal and financial platform for Soser Saving & Credit Cooperative Union LTD, unifying multi-branch accounts, automated loan tracking, and inclusive financial services across the region.
                 </p>
 
                 <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
-                  <div className="border-l-2 border-[#0866F6] pl-3">
-                    <p className="font-display text-2xl font-bold text-[#0866F6] dark:text-[#38BDF8]">120k+</p>
-                    <p className="text-[11px] text-muted-foreground">monthly rides</p>
-                  </div>
-                  <div className="border-l-2 border-border pl-3">
-                    <p className="font-display text-2xl font-bold text-foreground">4.2s</p>
-                    <p className="text-[11px] text-muted-foreground">avg match time</p>
-                  </div>
-                  <div className="border-l-2 border-border pl-3">
-                    <p className="font-display text-2xl font-bold text-foreground">99.98%</p>
-                    <p className="text-[11px] text-muted-foreground">rush hour uptime</p>
-                  </div>
+                  {caseStudies[0]?.metrics.map((m, idx) => (
+                    <div key={m.label} className={`border-l-2 ${idx === 0 ? "border-[#0866F6]" : "border-border"} pl-3`}>
+                      <p className={`font-display text-2xl font-bold ${idx === 0 ? "text-[#0866F6] dark:text-[#38BDF8]" : "text-foreground"}`}>
+                        {m.value}
+                      </p>
+                      <p className="text-[11px] text-muted-foreground">{m.label}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -288,17 +281,23 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col justify-center rounded-xl bg-gradient-to-br from-[#00267B]/10 via-[#0866F6]/10 to-[#38BDF8]/10 p-8 border border-border">
+            <div className="flex flex-col justify-between rounded-xl bg-gradient-to-br from-[#00267B]/10 via-[#0866F6]/10 to-[#38BDF8]/10 p-8 border border-border">
               <blockquote className="font-serif text-lg leading-relaxed text-foreground italic">
                 "{caseStudies[0]?.quote?.text}"
               </blockquote>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0866F6] font-display font-bold text-white text-sm">
-                  SG
+              <div className="mt-6 flex items-center gap-4">
+                <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-1 border border-border shadow-sm">
+                  <Image
+                    src="/logos/soserunion.png"
+                    alt="Soser Union Logo"
+                    width={48}
+                    height={48}
+                    className="h-full w-full object-contain"
+                  />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-foreground">{caseStudies[0]?.quote?.name}</p>
-                  <p className="text-[11px] text-muted-foreground">{caseStudies[0]?.quote?.role}</p>
+                  <p className="text-sm font-semibold text-foreground">{caseStudies[0]?.quote?.name}</p>
+                  <p className="text-xs text-muted-foreground">{caseStudies[0]?.quote?.role}</p>
                 </div>
               </div>
             </div>

@@ -7,7 +7,7 @@ import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 export const metadata: Metadata = {
   title: "Case Studies & Work — Ethiora Technology PLC Ethiopia",
   description:
-    "Explore how Ethiora Technology PLC built and scaled digital products across Ethiopia: Peace Ride Hailing, eSchool ERP, Damay Digital Equb, and SilkRoad Marketplace.",
+    "Explore how Ethiora Technology PLC built and scaled enterprise platforms across Ethiopia: Soser Union Digital Banking Portal, Ethiora HMS, and modern digital ecosystems.",
 };
 
 export default function WorkPage() {

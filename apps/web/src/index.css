@@ -100,4 +100,23 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  @keyframes marquee-rtl {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee-rtl {
+    display: flex;
+    width: max-content;
+    animation: marquee-rtl 38s linear infinite;
+  }
+
+  .animate-marquee-rtl:hover {
+    animation-play-state: paused;
+  }
 }

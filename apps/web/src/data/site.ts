@@ -253,6 +253,36 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "soser-union",
+    client: "Soser Saving & Credit Cooperative Union LTD",
+    industry: "Banking & Cooperative Fintech",
+    serviceSlugs: ["custom-software-erp", "payment-system-integration"],
+    timeline: "2023–2024",
+    headline: "Modern digital banking portal and cooperative management platform for Soser Union",
+    result: "Unified multi-branch digital portal and member services",
+    image: "/projects/soserunion/dashboard.webp",
+    challenge: [
+      "Soser Cooperative Societies Saving and Credit Union faced manual ledger bookkeeping, paper loan applications, and delays in managing savings across regional branch cooperatives.",
+      "The union required a secure, role-isolated web platform allowing members and branch officers to view digital accounts, track loan repayments, and streamline financial operations.",
+    ],
+    approach: [
+      "Engineered an enterprise portal and financial analytics dashboard using Next.js, TypeScript, PostgreSQL, and Prisma with role-based security.",
+      "Integrated member identification, digital loan tracking, and real-time ledger accounting with Telebirr and CBE payment notifications.",
+      "Delivered responsive mobile-ready web interfaces with localized language support and transparent ledger verification.",
+    ],
+    metrics: [
+      { value: "100%", label: "digitized union member portal" },
+      { value: "Multi-Branch", label: "cooperative federation connected" },
+      { value: "0", label: "reconciliation discrepancies recorded" },
+    ],
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Better Auth"],
+    quote: {
+      text: "Ethiora Technology delivered an enterprise-grade digital portal that elevated Soser Union into a modern, transparent financial cooperative.",
+      name: "Leadership Board",
+      role: "Soser Saving & Credit Cooperative Union LTD",
+    },
+  },
+  {
     slug: "peace-ride-hailing",
     client: "Peace Ride Ethiopia",
     industry: "Logistics & Transport",
@@ -377,18 +407,18 @@ export const caseStudies: CaseStudy[] = [
 export const industries = [
   {
     name: "Banking & Fintech",
-    note: "Digital Equb systems, Telebirr and Chapa payment gateways, micro-lending portals, automated ledger reconciliation, and strict INSA audit trails.",
-    detail: "15+ engagements · Damay Equb, Regional Microfinance, Payment Aggregators",
+    note: "Cooperative banking portals, SACCO platforms, Telebirr and Chapa payment gateways, micro-lending systems, and automated ledger reconciliation.",
+    detail: "15+ engagements · Soser Union, Regional SACCOs, Microfinance Unions",
   },
   {
     name: "Education & Academia",
     note: "School and university ERPs, student lifecycle management, digital grading, parent communication portals, and automated tuition payment processing.",
-    detail: "35+ school campuses · eSchool Consortium, Africa Graduate, Private Academies",
+    detail: "35+ school campuses · Regional Academies, University Portals, Private School Networks",
   },
   {
     name: "Transport & Logistics",
     note: "Ride-hailing ecosystems (passenger, driver, dispatch), freight tracking, route optimization, and fleet fuel/maintenance management.",
-    detail: "8 engagements · Peace Ride, Regional Freight Carriers, Urban Delivery Services",
+    detail: "8 engagements · Urban Transport Fleets, Freight Carriers, Delivery Networks",
   },
   {
     name: "Healthcare & Pharmaceuticals",
@@ -514,15 +544,100 @@ export const team = [
   },
 ];
 
+export type ClientPartner = {
+  name: string;
+  category: string;
+  logo: string;
+  badge?: string;
+  url?: string;
+  description?: string;
+};
+
+export const clientPartners: ClientPartner[] = [
+  {
+    name: "Soser Union",
+    category: "Saving & Credit Cooperative Union Ltd.",
+    logo: "/logos/soserunion.png",
+    badge: "Official Client",
+    url: "https://soserunoin.com",
+    description: "Soser Cooperative Societies Saving and Credit Union Ltd.",
+  },
+  {
+    name: "Telebirr",
+    category: "Mobile Money & Payment API",
+    logo: "/logos/telebirr.svg",
+    badge: "Ethio Telecom",
+    url: "https://www.ethiotelecom.et/telebirr/",
+    description: "Nationwide Mobile Payment Gateway",
+  },
+  {
+    name: "Commercial Bank of Ethiopia",
+    category: "Core Banking & CBE Birr",
+    logo: "/logos/cbe.svg",
+    badge: "CBE Birr",
+    url: "https://www.combanketh.et/",
+    description: "National Commercial Bank of Ethiopia",
+  },
+  {
+    name: "Bank of Abyssinia",
+    category: "Banking Integration Partner",
+    logo: "/logos/bank-of-abyssinia.svg",
+    badge: "BoA Mobile",
+    url: "https://www.bankofabyssinia.com/",
+    description: "Bank of Abyssinia Digital Banking Services",
+  },
+  {
+    name: "Awash Bank",
+    category: "Banking Integration Partner",
+    logo: "/logos/awash-bank.svg",
+    badge: "Awash Birr",
+    url: "https://awashbank.com/",
+    description: "Awash International Bank Digital Services",
+  },
+  {
+    name: "Coop Bank",
+    category: "Cooperative Bank of Oromia",
+    logo: "/logos/coop-bank.svg",
+    badge: "Coopay-Ebirr",
+    url: "https://coopbankoromia.com.et/",
+    description: "Cooperative Bank of Oromia Financial Services",
+  },
+  {
+    name: "Dev Bank of Ethiopia",
+    category: "Development Finance Institution",
+    logo: "/logos/dbe.png",
+    badge: "DBE",
+    url: "https://www.dbe.com.et/",
+    description: "Development Bank of Ethiopia",
+  },
+  {
+    name: "Chapa",
+    category: "Verified Payment Gateway",
+    logo: "/logos/chapa.svg",
+    badge: "Fintech Partner",
+    url: "https://chapa.co/",
+    description: "Secure Card & Local Payment Engine",
+  },
+  {
+    name: "Ethio Telecom",
+    category: "Telecommunications & USSD",
+    logo: "/logos/ethio-telecom.svg",
+    badge: "Infrastructure",
+    url: "https://www.ethiotelecom.et/",
+    description: "National Telecommunications Provider",
+  },
+];
+
 export const clients = [
+  "Soser Union",
   "Telebirr Integrated",
+  "Commercial Bank of Ethiopia (CBE)",
+  "Bank of Abyssinia",
+  "Awash Bank",
+  "Cooperative Bank of Oromia",
+  "Development Bank of Ethiopia",
   "Chapa Verified Partner",
-  "Peace Ride Hailing",
-  "eSchool Consortium",
-  "Damay Equb",
-  "SilkRoad Marketplace",
-  "East African Logistics",
-  "Addis Tech Hub",
+  "Ethio Telecom",
 ];
 
 export const stats = [
