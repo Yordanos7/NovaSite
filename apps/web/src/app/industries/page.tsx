@@ -7,16 +7,7 @@ import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 export const metadata: Metadata = {
   title: "Industries & Sectors — Ethiora Technology PLC Ethiopia",
   description:
-    "Tailored enterprise digital solutions across banking & fintech, education, transport, healthcare, retail, and hospitality in Ethiopia.",
-};
-
-const industryIcons: Record<string, string> = {
-  "Banking & Fintech": "💳",
-  "Education & Academia": "🎓",
-  "Transport & Logistics": "🚗",
-  "Healthcare & Pharmaceuticals": "🏥",
-  "Retail & E-Commerce": "🛍️",
-  "Hospitality & Tourism": "🏨",
+    "Tailored enterprise digital solutions across healthcare (Ethiora HMS), cooperative banking & SACCOs (Soser Union), digital Equb, wholesale trade, freight logistics, and manufacturing ERP in Ethiopia.",
 };
 
 export default function IndustriesPage() {
@@ -30,10 +21,10 @@ export default function IndustriesPage() {
             <span>Sector-Specific Digital Architecture</span>
           </div>
           <h1 className="mt-4 max-w-4xl font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            Sectors We Power in Ethiopia
+            Industries We Power in Ethiopia
           </h1>
           <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground">
-            We build with domain depth. We understand the regulatory standards, user workflows, and local payment expectations across each vertical.
+            We build with domain depth. We understand the regulatory standards, operational bottlenecks, local payment rails (Telebirr & CBE), and connectivity realities across each vertical.
           </p>
         </div>
       </section>
@@ -45,19 +36,44 @@ export default function IndustriesPage() {
             {industries.map((ind) => (
               <div
                 key={ind.name}
-                className="rounded-xl border border-border bg-card p-8 transition-all hover:border-[#0866F6] dark:hover:border-[#38BDF8] shadow-sm flex flex-col justify-between"
+                className="rounded-xl border border-border bg-card p-8 transition-all duration-300 hover:border-[#0866F6] hover:shadow-lg dark:hover:border-[#38BDF8] shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl" aria-hidden="true">
-                      {industryIcons[ind.name] ?? "◆"}
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="text-3xl" aria-hidden="true">
+                        {ind.icon}
+                      </span>
+                      <h2 className="font-display text-xl font-bold text-foreground">{ind.name}</h2>
+                    </div>
+                  </div>
+                  <div className="mt-2.5">
+                    <span className="rounded-full bg-[#0866F6]/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-[#0866F6] dark:text-[#38BDF8] border border-[#0866F6]/20">
+                      {ind.badge}
                     </span>
-                    <h2 className="font-display text-xl font-bold text-foreground">{ind.name}</h2>
                   </div>
                   <p className="mt-4 text-xs sm:text-sm leading-relaxed text-muted-foreground">{ind.note}</p>
+
+                  {ind.capabilities && (
+                    <div className="mt-5 border-t border-border/60 pt-4">
+                      <p className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground font-semibold mb-2.5">
+                        Core Built-In Systems:
+                      </p>
+                      <ul className="grid gap-2 text-xs text-foreground/85">
+                        {ind.capabilities.map((cap) => (
+                          <li key={cap} className="flex items-start gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0866F6] dark:bg-[#38BDF8]" />
+                            <span>{cap}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
                 <div className="mt-6 border-t border-border pt-4">
-                  <p className="font-mono text-xs text-[#0866F6] dark:text-[#38BDF8] font-medium">{ind.detail}</p>
+                  <p className="font-mono text-xs text-[#0866F6] dark:text-[#38BDF8] font-medium">
+                    📍 {ind.detail}
+                  </p>
                 </div>
               </div>
             ))}

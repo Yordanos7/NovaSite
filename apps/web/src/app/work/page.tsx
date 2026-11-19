@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, TrendingUp } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2, TrendingUp, ExternalLink, Globe, Award } from "lucide-react";
 import { caseStudies, contactDetails } from "@/data/site";
 import { EthiopianAccentLine } from "@/components/site/EthiopianPattern";
 
 export const metadata: Metadata = {
   title: "Case Studies & Work — Ethiora Technology PLC Ethiopia",
   description:
-    "Explore how Ethiora Technology PLC built and scaled enterprise platforms across Ethiopia: Soser Union Digital Banking Portal, Ethiora HMS, and modern digital ecosystems.",
+    "Explore how Ethiora Technology PLC built and scaled enterprise platforms across Ethiopia: Alyah Restaurant OS, Soser Union Digital Banking Portal, Ethiora HMS, and modern digital ecosystems.",
 };
 
 export default function WorkPage() {
@@ -35,35 +36,66 @@ export default function WorkPage() {
           <div className="mx-auto max-w-6xl px-6">
             <div className={`grid items-center gap-12 lg:grid-cols-2 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
               {/* Visual Card */}
-              <div className="overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-[#00267B]/10 via-[#0866F6]/10 to-[#38BDF8]/10 p-8 sm:p-12 aspect-[4/3] flex flex-col justify-between shadow-md">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-background/80 px-3 py-1 font-mono text-xs font-semibold text-[#0866F6] dark:text-[#38BDF8] border border-border">
-                    {c.industry}
-                  </span>
-                  <span className="font-mono text-xs text-muted-foreground">{c.timeline}</span>
-                </div>
-
-                <div className="my-auto py-6 text-center">
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-500/15 text-[#0866F6] dark:text-[#38BDF8] mb-4">
-                    <TrendingUp className="h-8 w-8" />
+              <div className="group overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all hover:border-[#0866F6]/50">
+                {/* Browser-style Topbar */}
+                <div className="flex items-center justify-between border-b border-border bg-secondary/50 px-4 py-3">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
                   </div>
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
-                    {c.client}
-                  </h3>
-                  <p className="mt-2 text-xs font-mono text-[#0866F6] dark:text-[#38BDF8]">
-                    {c.result}
-                  </p>
+                  <div className="flex items-center gap-1.5 rounded-md border border-border/60 bg-background/80 px-3 py-1 font-mono text-[11px] text-muted-foreground max-w-[200px] sm:max-w-xs truncate">
+                    <Globe className="h-3 w-3 shrink-0 text-[#0866F6]" />
+                    <span className="truncate">
+                      {c.liveUrl ? c.liveUrl.replace(/^https?:\/\//, "") : `${c.slug}.ethioratech.com`}
+                    </span>
+                  </div>
+                  {c.liveUrl ? (
+                    <a
+                      href={c.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-mono font-medium text-[#0866F6] dark:text-[#38BDF8] hover:underline"
+                    >
+                      <span>Live</span>
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  ) : (
+                    <span className="font-mono text-[10px] text-muted-foreground">{c.timeline}</span>
+                  )}
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 justify-center">
-                  {c.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded bg-background/90 px-2 py-0.5 font-mono text-[10px] text-muted-foreground border border-border"
-                    >
-                      {tech}
+                {/* Main Screenshot Container */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/40">
+                  <Image
+                    src={c.image}
+                    alt={`${c.client} Platform Screenshot`}
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority={i < 2}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                </div>
+
+                {/* Card Footer with Industry & Stack */}
+                <div className="border-t border-border bg-background p-4 sm:p-5">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <span className="rounded-full bg-[#0866F6]/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-[#0866F6] dark:text-[#38BDF8] border border-[#0866F6]/20">
+                      {c.industry}
                     </span>
-                  ))}
+                    <span className="font-mono text-xs font-medium text-[#0866F6] dark:text-[#38BDF8]">{c.result}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {c.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded bg-secondary/80 px-2 py-0.5 font-mono text-[10px] text-muted-foreground border border-border"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -104,13 +136,34 @@ export default function WorkPage() {
                   </blockquote>
                 )}
 
-                <div className="mt-8">
+                <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href={`/contact?case=${c.slug}` as any}
                     className="inline-flex items-center gap-2 rounded-md bg-[#0866F6] px-5 py-2.5 text-xs font-semibold text-white shadow-md shadow-blue-500/20 transition-all hover:bg-[#0650c5]"
                   >
                     Discuss a Similar Project <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
+                  {c.liveUrl && (
+                    <a
+                      href={c.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-4 py-2.5 text-xs font-semibold text-foreground hover:border-[#0866F6] hover:text-[#0866F6] transition-all shadow-xs"
+                    >
+                      Visit Live Platform <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+                  )}
+                  {c.certificateImage && (
+                    <a
+                      href={c.certificateImage}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-xs font-semibold text-amber-700 dark:text-amber-400 hover:bg-amber-500/20 transition-all shadow-xs"
+                    >
+                      <Award className="h-3.5 w-3.5" />
+                      Official Certificate
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

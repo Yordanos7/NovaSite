@@ -5,11 +5,13 @@ import { contactDetails } from "@/data/site";
 
 const options = [
   "Ethiora ERP & Enterprise Suite",
+  "Alyah Restaurant OS & QR Digital Menu",
   "Ethiora HMS (Hospital & Clinic PMS)",
   "Digital Equb Platform",
-  "Ride Hailing & Dispatch App",
+  "SACCO & Cooperative Banking Portal",
+  "Wholesale & FMCG Distribution ERP",
+  "Transport & Logistics Dispatch App",
   "Telebirr / Chapa E-Commerce",
-  "eSchool Management ERP",
   "Mobile App Development",
   "IT Outsourcing & Dedicated Teams",
   "Custom Software & Cloud Systems",

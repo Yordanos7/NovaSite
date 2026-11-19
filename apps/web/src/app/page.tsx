@@ -18,6 +18,9 @@ import {
   Stethoscope,
   CheckCircle2,
   Sparkles,
+  ExternalLink,
+  Globe,
+  Award,
 } from "lucide-react";
 import { HeroVisual } from "@/components/site/HeroVisual";
 import { EthiopianCrossPattern, EthiopianAccentLine } from "@/components/site/EthiopianPattern";
@@ -229,79 +232,222 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Case Study */}
+      {/* Featured Case Studies / Client Impact */}
       <section className="border-b border-border py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
-              <p className="text-xs font-mono uppercase tracking-wider text-[#0866F6] dark:text-[#38BDF8]">🏆 Proven Results in Addis Ababa</p>
+              <p className="text-xs font-mono uppercase tracking-wider text-[#0866F6] dark:text-[#38BDF8]">🏆 Proven Results in Addis Ababa & Regional Ethiopia</p>
               <h2 className="mt-1 font-display text-3xl sm:text-4xl font-bold text-foreground">Featured Client Impact</h2>
             </div>
             <Link
               href="/work"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0866F6] dark:text-[#38BDF8] hover:underline"
             >
-              All Case Studies <ArrowRight className="h-4 w-4" />
+              All Case Studies ({caseStudies.length}) <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid gap-10 rounded-2xl border border-border bg-card p-8 lg:grid-cols-2 lg:p-12 shadow-lg">
-            <div className="flex flex-col justify-between">
-              <div>
-                <span className="font-mono text-xs uppercase tracking-wider text-[#0866F6] font-semibold">
-                  Featured Case Study · {caseStudies[0]?.industry}
-                </span>
-                <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold text-foreground">
-                  {caseStudies[0]?.headline}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Developed an enterprise-grade digital portal and financial platform for Soser Saving & Credit Cooperative Union LTD, unifying multi-branch accounts, automated loan tracking, and inclusive financial services across the region.
-                </p>
-
-                <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
-                  {caseStudies[0]?.metrics.map((m, idx) => (
-                    <div key={m.label} className={`border-l-2 ${idx === 0 ? "border-[#0866F6]" : "border-border"} pl-3`}>
-                      <p className={`font-display text-2xl font-bold ${idx === 0 ? "text-[#0866F6] dark:text-[#38BDF8]" : "text-foreground"}`}>
-                        {m.value}
-                      </p>
-                      <p className="text-[11px] text-muted-foreground">{m.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <Link
-                  href="/work"
-                  className="inline-flex items-center justify-center rounded-md bg-[#0866F6] px-5 py-2.5 text-xs font-semibold text-white shadow shadow-blue-500/20 transition-all hover:bg-[#0650c5]"
-                >
-                  Read Full Case Study
-                  <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-between rounded-xl bg-gradient-to-br from-[#00267B]/10 via-[#0866F6]/10 to-[#38BDF8]/10 p-8 border border-border">
-              <blockquote className="font-serif text-lg leading-relaxed text-foreground italic">
-                "{caseStudies[0]?.quote?.text}"
-              </blockquote>
-              <div className="mt-6 flex items-center gap-4">
-                <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-1 border border-border shadow-sm">
-                  <Image
-                    src="/logos/soserunion.png"
-                    alt="Soser Union Logo"
-                    width={48}
-                    height={48}
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{caseStudies[0]?.quote?.name}</p>
-                  <p className="text-xs text-muted-foreground">{caseStudies[0]?.quote?.role}</p>
-                </div>
-              </div>
-            </div>
+          {/* Tab Selector */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {caseStudies.slice(0, 2).map((study, idx) => (
+              <button
+                key={study.slug}
+                onClick={() => setActiveTab(idx)}
+                className={`rounded-lg px-4 py-2 text-xs sm:text-sm font-medium transition-all ${
+                  activeTab === idx
+                    ? "bg-[#0866F6] text-white shadow-md shadow-blue-500/20"
+                    : "border border-border bg-card text-muted-foreground hover:bg-secondary hover:text-foreground"
+                }`}
+              >
+                {study.client}
+              </button>
+            ))}
           </div>
+
+          {/* Active Case Study Detail */}
+          {(() => {
+            const currentStudy = caseStudies[activeTab] || caseStudies[0];
+            return (
+              <div className="grid gap-10 rounded-2xl border border-border bg-card p-8 lg:grid-cols-2 lg:p-12 shadow-lg">
+                <div className="flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-xs uppercase tracking-wider text-[#0866F6] font-semibold">
+                        {currentStudy.industry} · {currentStudy.timeline}
+                      </span>
+                    </div>
+                    <h3 className="mt-3 font-display text-2xl sm:text-3xl font-bold text-foreground leading-snug">
+                      {currentStudy.headline}
+                    </h3>
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                      {currentStudy.challenge[0]}
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {currentStudy.approach[0]}
+                    </p>
+
+                    <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
+                      {currentStudy.metrics.map((m, idx) => (
+                        <div key={m.label} className={`border-l-2 ${idx === 0 ? "border-[#0866F6]" : "border-border"} pl-3`}>
+                          <p className={`font-display text-2xl font-bold ${idx === 0 ? "text-[#0866F6] dark:text-[#38BDF8]" : "text-foreground"}`}>
+                            {m.value}
+                          </p>
+                          <p className="text-[11px] text-muted-foreground leading-tight">{m.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
+                    <Link
+                      href={`/work#${currentStudy.slug}` as any}
+                      className="inline-flex items-center justify-center rounded-md bg-[#0866F6] px-5 py-2.5 text-xs font-semibold text-white shadow shadow-blue-500/20 transition-all hover:bg-[#0650c5]"
+                    >
+                      Read Full Case Study
+                      <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                    </Link>
+                    {currentStudy.liveUrl && (
+                      <a
+                        href={currentStudy.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-4 py-2.5 text-xs font-semibold text-foreground hover:border-[#0866F6] hover:text-[#0866F6] transition-all shadow-xs"
+                      >
+                        Visit Live Platform <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Right Visual Box: Certificate or Platform Mockup */}
+                {currentStudy.certificateImage ? (
+                  <div className="flex flex-col justify-between overflow-hidden rounded-2xl border border-amber-500/30 bg-gradient-to-br from-amber-500/5 via-blue-500/5 to-secondary/30 p-6 sm:p-7 shadow-lg">
+                    {/* Header */}
+                    <div className="flex items-center justify-between pb-3.5 border-b border-border/80">
+                      <div className="flex items-center gap-2.5">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400">
+                          <Award className="h-4 w-4" />
+                        </div>
+                        <div>
+                          <span className="font-display text-xs sm:text-sm font-bold text-foreground block">
+                            Certificate of Excellence
+                          </span>
+                          <span className="text-[10px] text-muted-foreground font-mono">
+                            Official Client Endorsement
+                          </span>
+                        </div>
+                      </div>
+                      <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1">
+                        <CheckCircle2 className="h-3 w-3" /> Signed & Stamped
+                      </span>
+                    </div>
+
+                    {/* Certificate Image Frame */}
+                    <div className="my-4 relative group overflow-hidden rounded-xl border border-border/80 bg-white shadow-md">
+                      <div className="relative aspect-[4/3] w-full">
+                        <Image
+                          src={currentStudy.certificateImage}
+                          alt="Soser Union Certificate of Excellence presented to Ethiora Technology PLC"
+                          fill
+                          className="object-contain p-1.5 transition-transform duration-300 group-hover:scale-[1.02]"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          priority
+                        />
+                      </div>
+                      <a
+                        href="/projects/soserunion/certificate.png"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white text-xs font-semibold backdrop-blur-xs"
+                      >
+                        <span>Open Full Size Certificate</span>
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </div>
+
+                    {/* Issuer Footer & Quote */}
+                    <div className="pt-3 border-t border-border/80 space-y-3">
+                      {currentStudy.quote && (
+                        <blockquote className="font-serif text-xs italic text-foreground leading-relaxed">
+                          "{currentStudy.quote.text}"
+                        </blockquote>
+                      )}
+                      <div className="flex items-center justify-between gap-3 pt-1">
+                        <div className="flex items-center gap-2.5">
+                          <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white p-1 border border-border shadow-xs">
+                            <Image
+                              src="/logos/soserunion.png"
+                              alt="Soser Union Logo"
+                              width={32}
+                              height={32}
+                              className="h-full w-full object-contain"
+                            />
+                          </div>
+                          <div>
+                            <p className="text-xs font-bold text-foreground leading-tight">
+                              Soser Saving & Credit Cooperative Union LTD
+                            </p>
+                            <p className="text-[10px] text-muted-foreground font-mono">
+                              Dangila, Northwest Ethiopia · Aug 30, 2025
+                            </p>
+                          </div>
+                        </div>
+                        <a
+                          href="/projects/soserunion/certificate.png"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 rounded-md border border-border bg-background px-2.5 py-1 text-[11px] font-semibold text-foreground hover:border-[#0866F6] hover:text-[#0866F6] transition-colors inline-flex items-center gap-1"
+                        >
+                          <span>View Doc</span>
+                          <ExternalLink className="h-3 w-3" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex flex-col justify-between overflow-hidden rounded-xl border border-border bg-gradient-to-br from-[#00267B]/10 via-[#0866F6]/10 to-[#38BDF8]/10 shadow-inner">
+                    {/* Mock Browser Header */}
+                    <div className="flex items-center justify-between border-b border-border/80 bg-background/80 px-4 py-2.5 backdrop-blur-xs">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-2 w-2 rounded-full bg-red-400" />
+                        <span className="h-2 w-2 rounded-full bg-amber-400" />
+                        <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                      </div>
+                      <div className="flex items-center gap-1.5 rounded bg-secondary/80 px-2.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                        <Globe className="h-2.5 w-2.5 text-[#0866F6]" />
+                        <span>{currentStudy.liveUrl ? currentStudy.liveUrl.replace(/^https?:\/\//, "") : currentStudy.slug}</span>
+                      </div>
+                      <span className="font-mono text-[10px] text-muted-foreground">{currentStudy.timeline}</span>
+                    </div>
+
+                    {/* Screenshot */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/40">
+                      <Image
+                        src={currentStudy.image}
+                        alt={`${currentStudy.client} Screenshot`}
+                        fill
+                        className="object-cover object-top transition-transform duration-500 hover:scale-[1.03]"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    </div>
+
+                    {/* Quote inside card footer */}
+                    {currentStudy.quote && (
+                      <div className="border-t border-border bg-background/90 p-4">
+                        <p className="font-serif text-xs italic text-foreground">
+                          "{currentStudy.quote.text}"
+                        </p>
+                        <p className="mt-1 text-[11px] font-semibold text-[#0866F6] dark:text-[#38BDF8]">
+                          — {currentStudy.quote.name}, <span className="font-normal text-muted-foreground">{currentStudy.quote.role}</span>
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
         </div>
       </section>
 
@@ -342,12 +488,14 @@ export default function Home() {
       <section className="border-b border-border py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-xs font-mono uppercase tracking-wider text-[#0866F6] dark:text-[#38BDF8]">🏛️ Domain Expertise</p>
+            <p className="text-xs font-mono uppercase tracking-wider text-[#0866F6] dark:text-[#38BDF8]">
+              🏛️ Local Domain Expertise
+            </p>
             <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold text-foreground">
               Industries We Power in Ethiopia
             </h2>
             <p className="mt-3 text-base text-muted-foreground">
-              Deep context in local governance, compliance standards, and commercial user behaviors.
+              Engineered with deep context in Ethiopian regulatory standards, local payment rails (Telebirr & CBE), and intermittent connectivity realities.
             </p>
           </div>
 
@@ -355,12 +503,45 @@ export default function Home() {
             {industries.map((ind) => (
               <div
                 key={ind.name}
-                className="rounded-xl border border-border bg-card p-7 transition-all hover:border-[#0866F6] dark:hover:border-[#38BDF8]"
+                className="group flex flex-col justify-between rounded-xl border border-border bg-card p-7 transition-all duration-300 hover:border-[#0866F6] hover:shadow-lg dark:hover:border-[#38BDF8] dark:hover:shadow-blue-950/20"
               >
-                <h3 className="font-display text-lg font-bold text-foreground">{ind.name}</h3>
-                <p className="mt-2.5 text-xs leading-relaxed text-muted-foreground">{ind.note}</p>
-                <div className="mt-4 border-t border-border pt-3">
-                  <span className="font-mono text-[11px] text-[#0866F6] dark:text-[#38BDF8]">{ind.detail}</span>
+                <div>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-3xl" role="img" aria-label={ind.name}>
+                      {ind.icon}
+                    </span>
+                    <span className="rounded-full bg-[#0866F6]/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-[#0866F6] dark:text-[#38BDF8] border border-[#0866F6]/20">
+                      {ind.badge}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-display text-lg font-bold text-foreground group-hover:text-[#0866F6] transition-colors">
+                    {ind.name}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                    {ind.note}
+                  </p>
+                  
+                  {ind.capabilities && (
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {ind.capabilities.map((cap) => (
+                        <span
+                          key={cap}
+                          className="rounded-md bg-secondary/70 px-2 py-0.5 text-[10px] font-medium text-foreground/85 border border-border/60"
+                        >
+                          {cap}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-6 border-t border-border pt-3.5">
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-xs text-[#0866F6] dark:text-[#38BDF8] mt-0.5">📍</span>
+                    <span className="font-mono text-[11px] leading-tight text-foreground/80 font-medium">
+                      {ind.detail}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
